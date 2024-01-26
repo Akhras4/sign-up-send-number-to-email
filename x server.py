@@ -4,7 +4,7 @@ app = Flask(__name__)
 app.secret_key = "123qaz"
 @app.route('/')
 def home1():
-    return render_template("indix.html", content=" welcome")
+    return render_template("indix.html", content="")
 
 
 @app.route("/X.html", methods=["POST", "GET"])
@@ -32,13 +32,13 @@ def signup():
         myresult = mycursor.fetchall()
         for x in myresult:
             if x == (username,):
-                return render_template("X.html", msname="sorry username is already exist")
+                return render_template("X.html", msname=" username is already exist")
 
             mycursor.execute(m)
             myresult1 = mycursor.fetchall()
             for y in myresult1:
                 if y == (email,):
-                    return render_template("X.html", msemail="sorry tha email has already Used")
+                    return render_template("X.html", msemail=" email has already Used")
 
         else:
             import random
@@ -46,9 +46,9 @@ def signup():
             import smtplib, ssl
             from email.mime.text import MIMEText
             from email.mime.multipart import MIMEMultipart
-            sender_email = "abdoakhras4@gmail.com"
+            sender_email = "******@gmail.com"
             receiver_email = email
-            appPassword = "keltxyvrhhovotdj"
+            appPassword = "*******"
             message = MIMEMultipart("alternative")
             message["Subject"] = "multipart test"
             message["From"] = sender_email
